@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text(
           'HomePage',
           style: TextStyle(
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),

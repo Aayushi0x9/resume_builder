@@ -12,9 +12,16 @@ class BuildOptionsPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
+          color: Colors.white,
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        title: const Text('Build Options'),
+        title: const Text(
+          'Build Options',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.teal,
         centerTitle: true,
       ),
       body: Padding(
