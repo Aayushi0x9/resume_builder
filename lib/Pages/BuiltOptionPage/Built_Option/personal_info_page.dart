@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -357,11 +359,13 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                                   ),
                                 ],
                               ),
-                              Text('${Globals.globals.name}'),
-                              Text('${Globals.globals.address}'),
-                              Text('${Globals.globals.contact}'),
-                              Text('${Globals.globals.password}'),
-                              Text('${Globals.globals.contact}'),
+                              RadioListTile(
+                                  value: 'male',
+                                  groupValue: Globals.globals.gender,
+                                  onChanged: () {
+                                    Globals.globals.gender = value;
+                                    setState(() {});
+                                  })
                             ],
                           ),
                         ),
@@ -401,10 +405,10 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                                   XFile? file = await picker.pickImage(
                                     source: ImageSource.gallery,
                                   );
-                                  // if (file != null) {
-                                  //   Globals.globals.image = File(file.path);
-                                  //   setState(() {});
-                                  // }
+                                  if (file != null) {
+                                    Globals.globals.image = File(file.path);
+                                    setState(() {});
+                                  }
                                 },
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50),
