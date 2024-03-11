@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../Components/snackbar.dart';
 import '../../../utils/global.dart';
@@ -128,7 +129,6 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                 ),
               ],
             ),
-            //contact
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -370,26 +370,59 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                     Container(
                       alignment: Alignment.center,
                       padding: const EdgeInsets.all(20),
-                      height: h * 0.5,
+                      height: h * 0.35,
                       width: double.infinity,
-                      color: Colors.white,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(3, 3),
+                              blurRadius: 3,
+                            )
+                          ]),
                       child: Column(
                         children: [
                           SizedBox(
-                            height: h * 0.08,
+                            height: h * 0.04,
                           ),
-                          CircleAvatar(
-                            radius: h * 0.05,
-                            backgroundColor: Colors.grey,
+                          Stack(
+                            alignment: Alignment.bottomRight,
+                            children: [
+                              CircleAvatar(
+                                radius: h * 0.05,
+                                backgroundColor: Colors.grey,
+                              ),
+                              FloatingActionButton.small(
+                                onPressed: () async {
+                                  ImagePicker picker = ImagePicker();
+
+                                  XFile? file = await picker.pickImage(
+                                    source: ImageSource.gallery,
+                                  );
+                                  // if (file != null) {
+                                  //   Globals.globals.image = File(file.path);
+                                  //   setState(() {});
+                                  // }
+                                },
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                hoverColor: Colors.blue,
+                                splashColor: Colors.green,
+                                child: Icon(Icons.add_a_photo_outlined),
+                              ),
+                            ],
                           ),
                           SizedBox(
-                            height: h * 0.08,
+                            height: h * 0.05,
                           ),
                           Text(
                             "Let's Add your Add Your Profile Picture in Your Resume Profile",
                             style: TextStyle(
                                 color: Colors.black.withOpacity(0.8),
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
                         ],

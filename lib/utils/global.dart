@@ -1,5 +1,8 @@
+import 'dart:html';
+
 class Globals {
   String? name, email, address, password, contact;
+  File? image;
 
   static final Globals globals = Globals();
 
