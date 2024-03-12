@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/about_page.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/achievements_page.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/certified_course_page.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/education_page.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/experience_page.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/hobbies_page.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/projects_page.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/technical_skills_page.dart';
 import 'package:resume_builder/utils/rout_utils.dart';
 
 import 'Pages/BuiltOptionPage/Built_Option/personal_info_page.dart';
@@ -23,6 +31,16 @@ class MyApp extends StatelessWidget {
         MyRoutes.buildOptionPage: (context) => const BuildOptionsPage(),
         MyRoutes.buildOptions[0]['route']: (context) =>
             const PersonalInfoPage(),
+        MyRoutes.buildOptions[1]['route']: (context) => const EducationPage(),
+        MyRoutes.buildOptions[2]['route']: (context) => const ExperiencePage(),
+        MyRoutes.buildOptions[3]['route']: (context) =>
+            const CertifiedCoursePage(),
+        MyRoutes.buildOptions[4]['route']: (context) => const ProjectsPage(),
+        MyRoutes.buildOptions[5]['route']: (context) => const TechnicalSkills(),
+        MyRoutes.buildOptions[6]['route']: (context) => const HobbiesPage(),
+        MyRoutes.buildOptions[7]['route']: (context) => const AboutPage(),
+        MyRoutes.buildOptions[8]['route']: (context) =>
+            const AchievementsPage(),
       },
     );
   }

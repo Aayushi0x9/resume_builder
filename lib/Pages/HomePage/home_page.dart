@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.teal.withOpacity(0.7),
+        backgroundColor: Colors.teal,
         titleSpacing: 1,
       ),
       floatingActionButton: FloatingActionButton.extended(

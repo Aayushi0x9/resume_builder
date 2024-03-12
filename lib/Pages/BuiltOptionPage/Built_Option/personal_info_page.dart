@@ -20,6 +20,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   bool? _isOther = false;
   bool? _isTravelling = false;
   bool? _isReading = false;
+  bool _ison = false;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -276,16 +277,6 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  //Cricket
-                                  // Checkbox(
-                                  //   value: _isCricket,
-                                  //   onChanged: (value) {
-                                  //     setState(() {
-                                  //       _isCricket = value;
-                                  //     });
-                                  //   },
-                                  // ),
-                                  // const Text("Cricket"),
                                   //Reading
                                   Checkbox(
                                     value: _isReading,
@@ -321,7 +312,59 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                               SizedBox(
                                 height: h * 0.02,
                               ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Gender',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  Switch(
+                                    value: _ison,
+                                    onChanged: (val) => setState(
+                                      () => _ison = !_ison,
+                                    ),
+                                  ),
+                                ],
+                              ),
 
+                              Visibility(
+                                visible: _ison,
+                                child: Column(
+                                  children: [
+                                    RadioListTile(
+                                      title: Text('Male'),
+                                      value: 'male',
+                                      groupValue: Globals.globals.gender,
+                                      onChanged: (value) {
+                                        Globals.globals.gender = value;
+                                        setState(() {});
+                                      },
+                                    ),
+                                    RadioListTile(
+                                      title: Text('Female'),
+                                      value: 'female',
+                                      groupValue: Globals.globals.gender,
+                                      onChanged: (value) {
+                                        Globals.globals.gender = value;
+                                        setState(() {});
+                                      },
+                                    ),
+                                    RadioListTile(
+                                      title: Text('Other'),
+                                      value: 'other',
+                                      groupValue: Globals.globals.gender,
+                                      onChanged: (value) {
+                                        Globals.globals.gender = value;
+                                        setState(() {});
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -359,13 +402,6 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                                   ),
                                 ],
                               ),
-                              RadioListTile(
-                                  value: 'male',
-                                  groupValue: Globals.globals.gender,
-                                  onChanged: () {
-                                    Globals.globals.gender = value;
-                                    setState(() {});
-                                  })
                             ],
                           ),
                         ),
@@ -397,6 +433,9 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                               CircleAvatar(
                                 radius: h * 0.05,
                                 backgroundColor: Colors.grey,
+                                foregroundImage: Globals.globals.image != null
+                                    ? FileImage(Globals.globals.image!)
+                                    : null,
                               ),
                               FloatingActionButton.small(
                                 onPressed: () async {
@@ -423,7 +462,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                             height: h * 0.05,
                           ),
                           Text(
-                            "Let's Add your Add Your Profile Picture in Your Resume Profile",
+                            "Let's Add Your Profile Picture in Your Resume Profile",
                             style: TextStyle(
                                 color: Colors.black.withOpacity(0.8),
                                 fontSize: 18,
