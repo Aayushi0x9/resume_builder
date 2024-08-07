@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class MyRoutes {
   static String splashScreen = '/';
   static String homePage = 'home_page';
@@ -7,47 +9,47 @@ class MyRoutes {
     {
       'title': 'Personal info',
       'route': 'personal_info',
-      'icon': '',
+      'icon': Icons.person,
     },
     {
       'title': 'Education',
       'route': 'education',
-      'icon': '',
+      'icon': Icons.school,
     },
     {
       'title': 'Experience',
       'route': 'experience',
-      'icon': '',
+      'icon': Icons.work,
     },
     {
       'title': 'Certified courses',
       'route': 'certified_courses',
-      'icon': '',
+      'icon': Icons.card_membership,
     },
     {
       'title': 'Projects',
       'route': 'projects',
-      'icon': '',
+      'icon': Icons.folder,
     },
     {
       'title': 'Technical skills',
       'route': 'technical_skills',
-      'icon': '',
+      'icon': Icons.build,
     },
     {
       'title': 'Hobbies',
       'route': 'hobbies',
-      'icon': '',
+      'icon': Icons.palette,
     },
     {
       'title': 'About',
       'route': 'about',
-      'icon': '',
+      'icon': Icons.info,
     },
     {
       'title': 'Achievements',
       'route': 'achievements',
-      'icon': '',
+      'icon': Icons.emoji_events,
     },
   ];
 }
