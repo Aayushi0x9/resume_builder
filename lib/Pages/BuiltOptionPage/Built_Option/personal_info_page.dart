@@ -145,9 +145,9 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                         ..rotateY(-0.05),
                       alignment: FractionalOffset.center,
                       child: Container(
-                        height: h * 0.7,
+                        // height: h * 0.7,
                         width: w * 0.9,
-                        padding: const EdgeInsets.all(20),
+                        // padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
@@ -169,154 +169,193 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                         child: Form(
                           key: formKey,
                           child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                // Wrap each TextFormField in a Transform and Container for 3D effect
-                                buildInputField(
-                                  'Name',
-                                  Icons.person_2_rounded,
-                                  'Eg., Aayushi',
-                                  (val) => Globals.globals.name = val,
-                                  (val) => val!.isEmpty
-                                      ? 'Must Enter Your Name'
-                                      : null,
-                                  initialValue: Globals.globals.name,
-                                  keyboardType: TextInputType.name,
-                                ),
-                                buildInputField(
-                                  'Email',
-                                  Icons.email_rounded,
-                                  'aayushi@gmail.com',
-                                  (val) => Globals.globals.email = val,
-                                  (val) => val!.isEmpty
-                                      ? 'Must Enter Your Email'
-                                      : RegExp(r'''[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?''')
-                                              .hasMatch(val)
-                                          ? null
-                                          : 'Invalid Email',
-                                  initialValue: Globals.globals.email,
-                                  keyboardType: TextInputType.emailAddress,
-                                ),
-                                buildInputField(
-                                  'Address',
-                                  Icons.share_location_rounded,
-                                  'Address',
-                                  (val) => Globals.globals.address = val,
-                                  (val) => val!.isEmpty
-                                      ? 'Must Enter Your Address'
-                                      : null,
-                                  initialValue: Globals.globals.address,
-                                  keyboardType: TextInputType.multiline,
-                                  maxLines: 3,
-                                ),
-                                buildInputField(
-                                  'Contact',
-                                  Icons.phone_android_rounded,
-                                  '65655892245',
-                                  (val) => Globals.globals.contact = val,
-                                  (val) => val!.isEmpty
-                                      ? 'Must Enter Your Contact'
-                                      : val.length < 10
-                                          ? 'Contact Must be Enter 10 Digits'
-                                          : null,
-                                  initialValue: Globals.globals.contact,
-                                  keyboardType: TextInputType.phone,
-                                  maxLength: 10,
-                                ),
-                                SizedBox(
-                                  height: h * 0.02,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Text(
-                                      'Gender',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    Switch(
-                                      value: _ison,
-                                      onChanged: (val) => setState(
-                                        () => _ison = !_ison,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-
-                                Visibility(
-                                  visible: _ison,
-                                  child: Column(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  // Container(
+                                  //   decoration: BoxDecoration(
+                                  //     color: Colors.white,
+                                  //     borderRadius: BorderRadius.circular(12),
+                                  //     boxShadow: [
+                                  //       BoxShadow(
+                                  //         color: Colors.grey.withOpacity(0.5),
+                                  //         spreadRadius: 1,
+                                  //         blurRadius: 10,
+                                  //         offset:
+                                  //             Offset(-3, -3), // changes position of shadow
+                                  //       ),
+                                  //       BoxShadow(
+                                  //         color: Colors.black.withOpacity(0.2),
+                                  //         spreadRadius: 1,
+                                  //         blurRadius: 10,
+                                  //         offset: Offset(3, 3), // changes position of shadow
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  //   child: TextFormField(
+                                  //     decoration: InputDecoration(
+                                  //       hintText: 'Enter your text here',
+                                  //       border: InputBorder.none,
+                                  //       contentPadding: EdgeInsets.symmetric(
+                                  //           horizontal: 16, vertical: 12),
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                  Text(
+                                    'Name',
+                                  ),
+                                  Image.network(
+                                    'assets/Input_text.png',
+                                    // height: 50,
+                                  ),
+                                  // Wrap each TextFormField in a Transform and Container for 3D effect
+                                  buildInputField(
+                                    'Name',
+                                    Icons.person_2_rounded,
+                                    'Eg., Aayushi',
+                                    (val) => Globals.globals.name = val,
+                                    (val) => val!.isEmpty
+                                        ? 'Must Enter Your Name'
+                                        : null,
+                                    initialValue: Globals.globals.name,
+                                    keyboardType: TextInputType.name,
+                                  ),
+                                  buildInputField(
+                                    'Email',
+                                    Icons.email_rounded,
+                                    'aayushi@gmail.com',
+                                    (val) => Globals.globals.email = val,
+                                    (val) => val!.isEmpty
+                                        ? 'Must Enter Your Email'
+                                        : RegExp(r'''[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?''')
+                                                .hasMatch(val)
+                                            ? null
+                                            : 'Invalid Email',
+                                    initialValue: Globals.globals.email,
+                                    keyboardType: TextInputType.emailAddress,
+                                  ),
+                                  buildInputField(
+                                    'Address',
+                                    Icons.share_location_rounded,
+                                    'Address',
+                                    (val) => Globals.globals.address = val,
+                                    (val) => val!.isEmpty
+                                        ? 'Must Enter Your Address'
+                                        : null,
+                                    initialValue: Globals.globals.address,
+                                    keyboardType: TextInputType.multiline,
+                                    maxLines: 3,
+                                  ),
+                                  buildInputField(
+                                    'Contact',
+                                    Icons.phone_android_rounded,
+                                    '65655892245',
+                                    (val) => Globals.globals.contact = val,
+                                    (val) => val!.isEmpty
+                                        ? 'Must Enter Your Contact'
+                                        : val.length < 10
+                                            ? 'Contact Must be Enter 10 Digits'
+                                            : null,
+                                    initialValue: Globals.globals.contact,
+                                    keyboardType: TextInputType.phone,
+                                    maxLength: 10,
+                                  ),
+                                  SizedBox(
+                                    height: h * 0.02,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      RadioListTile(
-                                        title: const Text('Male'),
-                                        value: 'male',
-                                        groupValue: Globals.globals.gender,
-                                        onChanged: (value) {
-                                          Globals.globals.gender = value;
-                                          setState(() {});
-                                        },
+                                      const Text(
+                                        'Gender',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                        ),
                                       ),
-                                      RadioListTile(
-                                        title: const Text('Female'),
-                                        value: 'female',
-                                        groupValue: Globals.globals.gender,
-                                        onChanged: (value) {
-                                          Globals.globals.gender = value;
-                                          setState(() {});
-                                        },
-                                      ),
-                                      RadioListTile(
-                                        title: const Text('Other'),
-                                        value: 'other',
-                                        groupValue: Globals.globals.gender,
-                                        onChanged: (value) {
-                                          Globals.globals.gender = value;
-                                          setState(() {});
-                                        },
+                                      Switch(
+                                        value: _ison,
+                                        onChanged: (val) => setState(
+                                          () => _ison = !_ison,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        bool validated =
-                                            formKey.currentState!.validate();
-                                        if (validated) {
-                                          formKey.currentState!.save();
-                                        }
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          MySnackbar(
-                                            content: validated
-                                                ? 'Form Saved!!'
-                                                : 'Failed to Validate Form!!',
-                                            color: validated
-                                                ? Colors.green
-                                                : Colors.red,
-                                          ),
-                                        );
-                                      },
-                                      child: const Text('Save'),
+
+                                  Visibility(
+                                    visible: _ison,
+                                    child: Column(
+                                      children: [
+                                        RadioListTile(
+                                          title: const Text('Male'),
+                                          value: 'male',
+                                          groupValue: Globals.globals.gender,
+                                          onChanged: (value) {
+                                            Globals.globals.gender = value;
+                                            setState(() {});
+                                          },
+                                        ),
+                                        RadioListTile(
+                                          title: const Text('Female'),
+                                          value: 'female',
+                                          groupValue: Globals.globals.gender,
+                                          onChanged: (value) {
+                                            Globals.globals.gender = value;
+                                            setState(() {});
+                                          },
+                                        ),
+                                        RadioListTile(
+                                          title: const Text('Other'),
+                                          value: 'other',
+                                          groupValue: Globals.globals.gender,
+                                          onChanged: (value) {
+                                            Globals.globals.gender = value;
+                                            setState(() {});
+                                          },
+                                        ),
+                                      ],
                                     ),
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        formKey.currentState!.reset();
-                                        Globals.globals.reset();
-                                        setState(() {});
-                                      },
-                                      child: const Text(
-                                        'Reset',
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          bool validated =
+                                              formKey.currentState!.validate();
+                                          if (validated) {
+                                            formKey.currentState!.save();
+                                          }
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            MySnackbar(
+                                              content: validated
+                                                  ? 'Form Saved!!'
+                                                  : 'Failed to Validate Form!!',
+                                              color: validated
+                                                  ? Colors.green
+                                                  : Colors.red,
+                                            ),
+                                          );
+                                        },
+                                        child: const Text('Save'),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          formKey.currentState!.reset();
+                                          Globals.globals.reset();
+                                          setState(() {});
+                                        },
+                                        child: const Text(
+                                          'Reset',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

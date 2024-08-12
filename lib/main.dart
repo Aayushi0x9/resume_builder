@@ -8,7 +8,6 @@ import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/hobbies_page.d
 import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/projects_page.dart';
 import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/technical_skills_page.dart';
 import 'package:resume_builder/utils/rout_utils.dart';
-
 import 'Pages/BuiltOptionPage/Built_Option/personal_info_page.dart';
 import 'Pages/BuiltOptionPage/build_option_page.dart';
 import 'Pages/HomePage/home_page.dart';
