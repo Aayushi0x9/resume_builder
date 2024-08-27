@@ -97,7 +97,8 @@ class BuildOptionsPage extends StatelessWidget {
                       ),
                     ),
                   );
-                }),
+                },
+            ),
           ),
         ],
       ),

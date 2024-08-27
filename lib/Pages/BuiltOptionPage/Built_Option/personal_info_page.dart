@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:resume_builder/Pages/BuiltOptionPage/Built_Option/resume_builder/Component/build_input_field.dart';
 
 import '../../../Components/snackbar.dart';
 import '../../../utils/global.dart';
@@ -53,7 +54,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
           backgroundColor: Colors.teal,
           titleSpacing: 1,
         ),
-        backgroundColor: Colors.grey.shade200,
+        backgroundColor: Colors.grey.shade100,
         body: Column(
           children: [
             Row(
@@ -145,26 +146,26 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                         ..rotateY(-0.05),
                       alignment: FractionalOffset.center,
                       child: Container(
-                        // height: h * 0.7,
-                        width: w * 0.9,
+                        height: h,
+                        width: w,
                         // padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              offset: const Offset(3, 3),
-                              blurRadius: 10,
-                              spreadRadius: 2,
-                            ),
-                            BoxShadow(
-                              color: Colors.white.withOpacity(0.7),
-                              offset: const Offset(-3, -3),
-                              blurRadius: 10,
-                              spreadRadius: 2,
-                            ),
-                          ],
+                          color: Colors.grey.shade100,
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Colors.black.withOpacity(0.2),
+                          //     offset: const Offset(3, 3),
+                          //     blurRadius: 10,
+                          //     spreadRadius: 2,
+                          //   ),
+                          //   BoxShadow(
+                          //     color: Colors.white.withOpacity(0.7),
+                          //     offset: const Offset(-3, -3),
+                          //     blurRadius: 10,
+                          //     spreadRadius: 2,
+                          //   ),
+                          // ],
                         ),
                         child: Form(
                           key: formKey,
@@ -202,13 +203,15 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                                   //     ),
                                   //   ),
                                   // ),
-                                  Text(
-                                    'Name',
-                                  ),
-                                  Image.network(
-                                    'assets/Input_text.png',
-                                    // height: 50,
-                                  ),
+                                  // Text(
+                                  //   textAlign: TextAlign.start,
+                                  //   'Name',
+                                  // ),
+                                  // Image.network(
+                                  //   'assets/Input_text.png',
+                                  //   width: size.width,
+                                  //   // height: 50,
+                                  // ),
                                   // Wrap each TextFormField in a Transform and Container for 3D effect
                                   buildInputField(
                                     'Name',
@@ -450,80 +453,89 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
     );
   }
 
-  Widget buildInputField(
-    String label,
-    IconData icon,
-    String hint,
-    Function(String?) onSave,
-    String? Function(String?) validator, {
-    TextInputType keyboardType = TextInputType.text,
-    int maxLength = 0,
-    String? initialValue,
-    int maxLines = 1,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 5),
-          Transform(
-            transform: Matrix4.identity()
-              ..setEntry(3, 2, 0.001)
-              ..rotateX(0.05)
-              ..rotateY(-0.05),
-            alignment: FractionalOffset.center,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    offset: const Offset(3, 3),
-                    blurRadius: 5,
-                    spreadRadius: 2,
-                  ),
-                  BoxShadow(
-                    color: Colors.white.withOpacity(0.7),
-                    offset: const Offset(-3, -3),
-                    blurRadius: 10,
-                    spreadRadius: 1,
-                  ),
-                ],
-              ),
-              child: TextFormField(
-                onSaved: onSave,
-                validator: validator,
-                initialValue: initialValue,
-                keyboardType: keyboardType,
-                maxLength: maxLength > 0 ? maxLength : null,
-                maxLines: maxLines,
-                decoration: InputDecoration(
-                  hintText: hint,
-                  hintStyle: const TextStyle(
-                    fontSize: 12,
-                  ),
-                  prefixIcon: Icon(icon),
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide.none,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white70,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget buildInputField(
+  //   String label,
+  //   IconData icon,
+  //   String hint,
+  //   Function(String?) onSave,
+  //   String? Function(String?) validator, {
+  //   TextInputType keyboardType = TextInputType.text,
+  //   int maxLength = 0,
+  //   String? initialValue,
+  //   int maxLines = 1,
+  // }) {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(vertical: 10.0),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text(
+  //           label,
+  //           style: const TextStyle(
+  //             fontSize: 16,
+  //             fontWeight: FontWeight.bold,
+  //           ),
+  //         ),
+  //         SizedBox(height: 5),
+  //         Transform(
+  //           transform: Matrix4.identity()
+  //             ..setEntry(3, 2, 0.001)
+  //             ..rotateX(0.05)
+  //             ..rotateY(0.05),
+  //           alignment: FractionalOffset.center,
+  //           child: Container(
+  //             decoration: BoxDecoration(
+  //               borderRadius: BorderRadius.circular(10),
+  //               gradient: LinearGradient(
+  //                 colors: [
+  //                   Colors.teal.shade50, // Start color
+  //                   Colors.teal.shade100, // End color
+  //                 ],
+  //                 begin: Alignment.topLeft,
+  //                 end: Alignment.bottomRight,
+  //               ),
+  //               // Optional: You can keep the boxShadow or remove it if it doesn't match well with the gradient.
+  //               boxShadow: [
+  //                 BoxShadow(
+  //                   color: Colors.black.withOpacity(0.1),
+  //                   offset: Offset(3, 3),
+  //                   blurRadius: 5,
+  //                   spreadRadius: 2,
+  //                 ),
+  //                 BoxShadow(
+  //                   color: Colors.white.withOpacity(0.7),
+  //                   offset: Offset(-3, -3),
+  //                   blurRadius: 10,
+  //                   spreadRadius: 1,
+  //                 ),
+  //               ],
+  //             ),
+  //             child: TextFormField(
+  //               onSaved: onSave,
+  //               validator: validator,
+  //               initialValue: initialValue,
+  //               keyboardType: keyboardType,
+  //               maxLength: maxLength > 0 ? maxLength : null,
+  //               maxLines: maxLines,
+  //               decoration: InputDecoration(
+  //                 hintText: hint,
+  //                 hintStyle: const TextStyle(
+  //                   fontSize: 12,
+  //                 ),
+  //                 prefixIcon: Icon(icon, color: Colors.teal),
+  //                 border: const OutlineInputBorder(
+  //                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+  //                   borderSide: BorderSide.none,
+  //                 ),
+  //                 filled: true,
+  //                 fillColor: Colors
+  //                     .transparent, // Set to transparent to show the gradient
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
